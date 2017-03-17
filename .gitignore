@@ -1,0 +1,7 @@
+\#*#
+*~
+.nfs.*
+*.swp
+*.o
+libft.a
+game_2048
