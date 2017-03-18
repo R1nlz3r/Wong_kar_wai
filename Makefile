@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/17 20:34:13 by mapandel          #+#    #+#              #
-#    Updated: 2017/03/17 20:35:47 by mapandel         ###   ########.fr        #
+#    Updated: 2017/03/18 11:48:43 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS = 	-Wall -Wextra -Werror -Weverything
 
 #			Sources
 
-SRC =
+SRC =		sources/main.c \
 
 OBJ =		$(SRC:.c=.o)
 
@@ -50,7 +50,7 @@ $(NAME):
 	@cd libft; $(MAKE) -f Makefile
 	@echo "$(CYA)--::Compil Game_2048::--$(DEF)"
 	@make $(OBJ)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBPATH)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBPATH) -lncurses
 
 all: $(NAME)
 
