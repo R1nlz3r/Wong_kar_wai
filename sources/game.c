@@ -12,26 +12,25 @@
 
 #include "game_2048.h"
 
-void		game(t_2048 *wkw)
+int		game(t_2048 *wkw)
 {
-	int		key;
-
-	key = 0;
+	int key;
+	keypad(stdscr, TRUE);
+	set_escdelay(1);
 	while (1)
 	{
 		clear();
 		wkw = game_new_piece(wkw);
+		if (wkw == NULL)
+			return (game_over());
 		draw_window(wkw);//afficher la grille
 		key = getch();
-		//if (tmp == KEY_UP)
+		if (key == 27)
+			return (1);
+		//refresh();
 			//game_change_up();
-		//else if (tmp == KEY_DOWN)
-			//game_change_down();
-		//else if (tmp == KEY_RIGHT)
-			//game_change_right();
-		//else if (tmp == KEY_LEFT)
-			//game_change_left();
-		if (key == 27 || check_end_game(wkw)) //else if
-			break ;
+		//	game_change_left();
+		//else if (tmp == 27) //else if
+			//return ;
 	}
 }
