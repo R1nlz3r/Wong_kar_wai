@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/17 20:34:13 by mapandel          #+#    #+#              #
-#    Updated: 2017/03/18 11:48:43 by mapandel         ###   ########.fr        #
+#    Updated: 2017/03/18 17:16:12 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ CFLAGS = 	-Wall -Wextra -Werror -Weverything
 #			Sources
 
 SRC =		sources/main.c \
+			sources/game.c \
+			sources/game_new_piece.c \
+			sources/game_end.c \
 
 OBJ =		$(SRC:.c=.o)
 
