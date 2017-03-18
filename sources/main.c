@@ -28,31 +28,24 @@ static t_2048		*init_t_2048(t_2048 *wkw)
 	return (wkw);
 }
 
-static void 		del_t_2048(t_2048 *wkw)
-{
-	int		tmp;
-
-	tmp = 0;
-	while (tmp < 4)
-		ft_memdel((void**)&wkw->map[tmp++]);
-	ft_memdel((void**)wkw->map);
-	ft_memdel((void**)wkw->wdow);
-	ft_memdel((void**)wkw);
-}
-
 int					main(void)
 {
 	t_2048		*wkw;
+	int				tmp;
 
+	tmp = 1;
 	wkw = NULL;
+	while (tmp)
+	{
 	if (!(wkw = init_t_2048(wkw))
 		|| wkw->win_value % 2 != 0)
 		return (-1);
 	srand((unsigned)time(NULL));
 	initscr();
 	noecho();
-	game(wkw);
+	cbreak();
+	tmp = game(wkw);
 	endwin();
-	del_t_2048(wkw);
+}
 	return (0);
 }
