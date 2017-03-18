@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 16:40:30 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/18 17:17:01 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/18 17:31:04 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		game(t_2048 *wkw)
 	{
 		clear();
 		wkw = game_new_piece(wkw);
-		//afficher la grille
+		draw_window(wkw);//afficher la grille
 		key = getch();
 		//if (tmp == KEY_UP)
 			//game_change_up();
