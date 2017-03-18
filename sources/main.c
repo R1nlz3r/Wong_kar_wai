@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:49:40 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/18 11:48:21 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/18 12:03:08 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static t_2048		*init_t_2048(t_2048 *wong_kar_wai)
 {
 	if (!(wong_kar_wai = ft_memalloc(sizeof(t_2048))))
 		return (NULL);
+	wong_kar_wai->win_value = WIN_VALUE;
 	return (wong_kar_wai);
 }
 
@@ -35,14 +36,18 @@ int					main(void)
 		|| wong_kar_wai->win_value % 2 != 0)
 		return (-1);
 	initscr();
+	noecho();
+
+	//init le jeu
 
 	while (1)
 	{
 		clear();
 		mvprintw(LINES / 2, COLS / 2, ft_itoa(tmp));
 		tmp = getch();
-		if (tmp == KEY_UP)
+		if (tmp == 27)
 			break;
+		//edit le jeu selon l'input
 	}
 
 	endwin();
