@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:47:07 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/18 17:22:53 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/18 17:28:06 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ typedef struct		s_2048
 void		game(t_2048 *wkw);
 t_2048		*game_new_piece(t_2048 *wong_kar_wai);
 int			check_end_game(t_2048 *wkw);
-
+void		draw_window(t_2048 *wkw);
 #endif
