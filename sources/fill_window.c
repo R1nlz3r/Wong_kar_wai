@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 14:15:24 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 19:33:06 by mdardakh         ###   ########.fr       */
+/*   Updated: 2017/03/19 19:57:55 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void			draw_window(t_2048 *wkw)
 	b = 150;
 	c = 200;
 	init_pair(1, FOND, FOND);
-	if (LINES < 40 || COLS < 40)
+	if (LINES < 20 || COLS < 60)
 	{
 		printw("Window too small, fuck you.");
 		return ;
