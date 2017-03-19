@@ -6,13 +6,13 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 15:24:33 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 15:27:15 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 16:22:58 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-int			game_over(void)
+int			game_over(t_2048 *wkw)
 {
 	int		key;
 
@@ -25,10 +25,9 @@ int			game_over(void)
 		printw("GAME OVER.");
 		attroff(COLOR_PAIR(5));
 		move(LINES / 2, COLS / 5);
-		printw("Partie terminee, appuyez sur une touche pour rejouez ou ESC \
-			pour quitter.");
+		printw("Partie terminee, appuyez sur une touche pour rejouez ou ESC pour quitter.");
 		move(LINES * 0.55, COLS * 0.44);
-		printw("Score : 42");
+		printw("Score : %u", wkw->score);
 		key = getch();
 		if (key == KEY_UP)
 			break ;
