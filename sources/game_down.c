@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 12:07:08 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 12:29:32 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 16:21:06 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int		game_down(t_2048 *wkw)
 				else if (wkw->map[tmp][wkw->columns] == wkw->map[wkw->lines][wkw->columns] && (++count))
 				{
 					wkw->map[tmp][wkw->columns] = wkw->map[wkw->lines][wkw->columns] * 2;
+					wkw->score += (size_t)wkw->map[wkw->lines]
+						[wkw->columns] * 2;
 					wkw->map[wkw->lines][wkw->columns] = 0;
 				}
 				else if (tmp - 1 != wkw->lines && (++count))
