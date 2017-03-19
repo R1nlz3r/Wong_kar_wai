@@ -24,6 +24,12 @@ SRC =		sources/main.c \
 			sources/game_new_piece.c \
 			sources/game_end.c \
 			sources/fill_window.c \
+			sources/start_and_end.c \
+			sources/game_down.c \
+			sources/game_up.c \
+			sources/game_left.c \
+			sources/game_right.c \
+
 
 OBJ =		$(SRC:.c=.o)
 
