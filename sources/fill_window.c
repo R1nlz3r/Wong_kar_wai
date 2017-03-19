@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 14:15:24 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 16:45:17 by mdardakh         ###   ########.fr       */
+/*   Updated: 2017/03/19 19:33:06 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,26 @@
 
 static short	get_color(short val)
 {
-	short		t[10] = {0, 2, 4, 8, 16, 32, 64, 128, 256, 512};
-	short		i;
+	short		t[12];
+	short i;
 
 	i = 0;
-	while (t[i] != val)
+	t[0] = 0;
+	t[1] = 2;
+	t[2] = 4;
+	t[3] = 8;
+	t[4] = 16;
+	t[5] = 32;
+	t[6] = 64;
+	t[7] = 128;
+	t[8] = 256;
+	t[9] = 512;
+	t[10] = 1024;
+	t[11] = 2048;
+	while (t[i] != val && i < 12)
 		i++;
+	if (i == 12)
+		return (RED);
 	return (i + 152);
 }
 
@@ -56,7 +70,8 @@ void			draw_window(t_2048 *wkw)
 			wkw->wdow = subwin(stdscr, LINES / 4, COLS / 4, (LINES / 4 - 1) * i,
 				(COLS / 4 - 1) * j);
 			move((LINES / 4 - 1) * i + (LINES / 8),
-				(COLS / 4 - 1) * j + (COLS / 8));
+				(COLS / 4 - 1) * j + (COLS / 8) -
+				(int)(ft_strlen(ft_itoa(wkw->map[i][j])) / 2));
 			attron(COLOR_PAIR( (chtype)c ));
 			if (wkw->map[i][j] != 0)
 			printw("%d", wkw->map[i][j]);
