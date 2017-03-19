@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:49:40 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 15:14:54 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 16:19:17 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static t_2048		*init_t_2048(t_2048 *wkw)
 	wkw->win_value = WIN_VALUE;
 	wkw->lines = 0;
 	wkw->columns = 0;
+	wkw->score = 0;
 	return (wkw);
 }
 
@@ -47,6 +48,7 @@ static void		reset_t_2048(t_2048 *wkw)
 	tmp = 0;
 	while (tmp < 4)
 		ft_tabfill(wkw->map[tmp++], 0, 4);
+	wkw->score = 0;
 }
 
 static void		implement_color(void)
