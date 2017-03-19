@@ -44,6 +44,12 @@ int					main(void)
 	initscr();
 	noecho();
 	cbreak();
+	start_color();
+	keypad(stdscr, TRUE);
+	set_escdelay(1);
+	curs_set(0);
+	clear();
+	start(wkw);
 	tmp = game(wkw);
 	endwin();
 }
