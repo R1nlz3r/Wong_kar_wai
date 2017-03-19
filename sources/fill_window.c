@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 14:15:24 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 20:31:41 by mdardakh         ###   ########.fr       */
+/*   Updated: 2017/03/19 21:47:50 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static short	get_color(int val)
 {
 	short		t[12];
-	short i;
+	short		i;
 
 	if (val > 2048)
 		return (COLOR_RED);
@@ -37,52 +37,55 @@ static short	get_color(int val)
 	return (i + 152);
 }
 
+static void		draw_window2(t_2048 *wkw, short *tmp, short *a, short *b)
+{
+	wkw->wdow2 = subwin(stdscr, LINES / 4, COLS / 4,
+		(LINES / 4 - 1) * wkw->lines, (COLS / 4 - 1) * wkw->columns);
+	*tmp = get_color(wkw->map[wkw->lines][wkw->columns]);
+	init_pair(*a, *tmp, *tmp);
+	init_pair(*b, CHIFFRE, *tmp);
+	wbkgd(wkw->wdow2, COLOR_PAIR((chtype)*a));
+	++*a;
+	wkw->wdow = subwin(stdscr, LINES / 4, COLS / 4,
+		(LINES / 4 - 1) * wkw->lines, (COLS / 4 - 1) * wkw->columns);
+	move((LINES / 4 - 1) * wkw->lines + (LINES / 8),
+		(COLS / 4 - 1) * wkw->columns + (COLS / 8) -
+		(int)(ft_strlen(ft_itoa(wkw->map[wkw->lines][wkw->columns])) / 2));
+	attron(COLOR_PAIR((chtype)*b));
+	if (wkw->map[wkw->lines][wkw->columns] != 0)
+		printw("%d", wkw->map[wkw->lines][wkw->columns]);
+	attroff(COLOR_PAIR((chtype)*b));
+	++*b;
+	wattron(wkw->wdow, COLOR_PAIR(1));
+	wborder(wkw->wdow, '|', '|', '-', '-', '+', '+', '+', '+');
+	wattroff(wkw->wdow, COLOR_PAIR(1));
+}
+
 void			draw_window(t_2048 *wkw)
 {
-	int			i;
-	int			j;
 	short		tmp;
+	short		a;
 	short		b;
-	short		c;
-	WINDOW		*win;
 
-	i = 0;
-	b = 150;
-	c = 200;
+	wkw->lines = 0;
+	tmp = 0;
+	a = 150;
+	b = 200;
 	init_pair(1, FOND, FOND);
 	if (LINES < 20 || COLS < 60)
 	{
 		printw("Window too small, fuck you.");
 		return ;
 	}
-	while (i < 4)
+	while (wkw->lines < 4)
 	{
-		j = 0;
-		while (j < 4)
+		wkw->columns = 0;
+		while (wkw->columns < 4)
 		{
-			win = subwin(stdscr, LINES / 4, COLS / 4, (LINES / 4 - 1) * i,
-				(COLS / 4 - 1) * j);
-			tmp = get_color(wkw->map[i][j]);
-			init_pair(b, tmp, tmp);
-			init_pair(c, CHIFFRE, tmp);
-			wbkgd(win, COLOR_PAIR((chtype)b));
-			++b;
-			wkw->wdow = subwin(stdscr, LINES / 4, COLS / 4, (LINES / 4 - 1) * i,
-				(COLS / 4 - 1) * j);
-			move((LINES / 4 - 1) * i + (LINES / 8),
-				(COLS / 4 - 1) * j + (COLS / 8) -
-				(int)(ft_strlen(ft_itoa(wkw->map[i][j])) / 2));
-			attron(COLOR_PAIR( (chtype)c ));
-			if (wkw->map[i][j] != 0)
-			printw("%d", wkw->map[i][j]);
-			attroff(COLOR_PAIR( (chtype)c ));
-			++c;
-			wattron(wkw->wdow, COLOR_PAIR(1));
-			wborder(wkw->wdow, '|', '|', '-', '-', '+', '+', '+', '+');
-			wattroff(wkw->wdow, COLOR_PAIR(1));
-			++j;
+			draw_window2(wkw, &tmp, &a, &b);
+			++wkw->columns;
 		}
-		++i;
+		++wkw->lines;
 	}
 	wrefresh(wkw->wdow);
 }
