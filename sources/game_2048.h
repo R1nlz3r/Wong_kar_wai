@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:47:07 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 17:56:28 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 18:45:04 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int					game_down(t_2048 *wkw);
 int					game_up(t_2048 *wkw);
 int					game_left(t_2048 *wkw);
 int					game_right(t_2048 *wkw);
+int					check_pow_2(int value);
 
 #endif
