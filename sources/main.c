@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:49:40 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 21:10:47 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 22:36:06 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ static void		del_t_2048(t_2048 *wkw)
 	while (tmp < 4)
 		ft_memdel((void**)&wkw->map[tmp++]);
 	ft_memdel((void**)wkw->map);
-	free(wkw->wdow);
-	free(wkw);
 }
 
 static void		reset_t_2048(t_2048 *wkw)
