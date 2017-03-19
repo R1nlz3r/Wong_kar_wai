@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 16:40:30 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 19:38:21 by mdardakh         ###   ########.fr       */
+/*   Updated: 2017/03/19 19:41:28 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static int		aff_game_over(t_2048 *wkw)
 		printw("GAME OVER.");
 		attroff(COLOR_PAIR(5));
 		move(LINES / 2, COLS / 2 - 34);
-		printw("Partie terminee ,"
+		printw("Partie terminee, "
 			"appuyez sur ENTER pour rejouez ou ESC pour quitter.");
 		move(LINES * 0.5 + 2, COLS * 0.5 - 5);
 		printw("Score : %u", wkw->score);
