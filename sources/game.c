@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 16:40:30 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 14:56:28 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 16:23:10 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			game(t_2048 *wkw)
 		if (check_end_game(wkw))
 		{
 			clear();
-			return (game_over());
+			return (game_over(wkw));
 		}
 	}
 	return (0);
