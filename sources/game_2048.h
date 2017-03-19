@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:47:07 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 18:45:04 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 19:26:48 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 # define TRENTE		157
 # define SOIXANTE	158
 # define CENT 		159
+# define DEUX_CENT	160
+# define CINQ_CENT	161
+# define MILLE		162
+# define DEUX_MILLE 163
+# define RED		164
 
 enum e_const
 {
