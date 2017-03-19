@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 15:53:50 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/18 17:15:03 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 14:25:35 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int		check_end_game(t_2048 *wkw)
 		}
 		++wkw->lines;
 	}
-	//afficher la fin de partie + score
 	return (1);
 }
