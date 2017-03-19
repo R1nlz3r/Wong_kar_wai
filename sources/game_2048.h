@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:47:07 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 15:34:04 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 16:42:18 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@
 # include <time.h>
 # include "../libft/libft.h"
 
-# define FOND		9
-# define CHIFFRE	10
-# define ZERO		11
-# define DEUX		12
-# define QUATRE		13
-# define HUIT		14
+# define FOND		150
+# define CHIFFRE	151
+# define ZERO		152
+# define DEUX		153
+# define QUATRE		154
+# define HUIT		155
+# define SEIZE 		156
+# define TRENTE		157
+# define SOIXANTE	158
+# define CENT 		159
 
 enum e_const
 {
@@ -37,14 +41,14 @@ typedef struct		s_2048
 	int				**map;
 	int				lines;
 	int				columns;
-	size_t			*score;
+	size_t			score;
 }					t_2048;
 
 int					game(t_2048 *wkw);
 void				game_new_piece(t_2048 *wkw);
 int					check_end_game(t_2048 *wkw);
 void				draw_window(t_2048 *wkw);
-int 				game_over(void);
+int 				game_over(t_2048 *wkw);
 int 				game_start(t_2048 *wkw);
 int					game_down(t_2048 *wkw);
 int					game_up(t_2048 *wkw);
