@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:49:40 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 18:44:26 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 19:31:28 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ static void		implement_color(void)
     init_color(TRENTE, 246 * 4, 124 * 4, 95 * 4);
     init_color(SOIXANTE, 246 * 4, 94 * 4, 59 * 4);
     init_color(CENT, 237 * 4, 207 * 4, 114 * 4);
+	init_color(DEUX_CENT, 237 * 4 - 30, 204 * 4 - 30, 97 * 4 - 30);
+	init_color(CINQ_CENT, 237 * 4 - 80, 204 * 4 - 80, 97 * 4 - 80);
+	init_color(MILLE, 237 * 4 - 130, 204 * 4 - 130, 97 * 4 - 130);
+	init_color(DEUX_MILLE, 237 * 4 - 170, 204 * 4 - 170, 97 * 4 - 170);
+	init_color(RED, 255 * 4,  51 * 4 + 50, 0);
 }
 
 int					main(void)
