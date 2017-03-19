@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 14:15:24 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 15:32:08 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 16:45:17 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static short	get_color(short val)
 	i = 0;
 	while (t[i] != val)
 		i++;
-	return (i + 11);
+	return (i + 152);
 }
 
 void			draw_window(t_2048 *wkw)
@@ -29,10 +29,12 @@ void			draw_window(t_2048 *wkw)
 	int			j;
 	short		tmp;
 	short		b;
+	short		c;
 	WINDOW		*win;
 
 	i = 0;
-	b = 4;
+	b = 150;
+	c = 200;
 	init_pair(1, FOND, FOND);
 	if (LINES < 40 || COLS < 40)
 	{
@@ -48,17 +50,18 @@ void			draw_window(t_2048 *wkw)
 				(COLS / 4 - 1) * j);
 			tmp = get_color((short)wkw->map[i][j]);
 			init_pair(b, tmp, tmp);
-			init_pair(2000, CHIFFRE, tmp);
+			init_pair(c, CHIFFRE, tmp);
 			wbkgd(win, COLOR_PAIR((chtype)b));
-			b++;
+			++b;
 			wkw->wdow = subwin(stdscr, LINES / 4, COLS / 4, (LINES / 4 - 1) * i,
 				(COLS / 4 - 1) * j);
 			move((LINES / 4 - 1) * i + (LINES / 8),
 				(COLS / 4 - 1) * j + (COLS / 8));
-			attron(COLOR_PAIR(25));
+			attron(COLOR_PAIR( (chtype)c ));
 			if (wkw->map[i][j] != 0)
 			printw("%d", wkw->map[i][j]);
-			attroff(COLOR_PAIR(25));
+			attroff(COLOR_PAIR( (chtype)c ));
+			++c;
 			wattron(wkw->wdow, COLOR_PAIR(1));
 			wborder(wkw->wdow, '|', '|', '-', '-', '+', '+', '+', '+');
 			wattroff(wkw->wdow, COLOR_PAIR(1));
