@@ -6,31 +6,38 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 16:40:30 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/18 17:31:04 by mdardakh         ###   ########.fr       */
+/*   Updated: 2017/03/19 12:54:54 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-int		game(t_2048 *wkw)
+int			game(t_2048 *wkw)
 {
-	int key;
-	keypad(stdscr, TRUE);
-	set_escdelay(1);
+	int		key;
+
+	//affichage début du jeu ou rejouer
+	wkw = game_new_piece(wkw);
 	while (1)
 	{
 		clear();
-		wkw = game_new_piece(wkw);
-		if (wkw == NULL)
-			return (game_over());
-		draw_window(wkw);//afficher la grille
+		draw_window(wkw);
 		key = getch();
-		if (key == 27)
-			return (1);
-		//refresh();
-			//game_change_up();
-		//	game_change_left();
-		//else if (tmp == 27) //else if
-			//return ;
+		if (key == KEY_UP && game_up(wkw))
+			wkw = game_new_piece(wkw);
+		else if (key == KEY_DOWN && game_down(wkw))
+			wkw = game_new_piece(wkw);
+		else if (key == KEY_LEFT && game_left(wkw))
+			wkw = game_new_piece(wkw);
+		else if (key == KEY_RIGHT && game_right(wkw))
+			wkw = game_new_piece(wkw);
+		else if (key == 27)
+			break ;
+		if (check_end_game(wkw))
+		{
+			clear();
+			return (game_over());
+		}
 	}
+	return (0);
 }
