@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 14:15:24 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 21:47:50 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 22:38:27 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,30 @@ static short	get_color(int val)
 
 static void		draw_window2(t_2048 *wkw, short *tmp, short *a, short *b)
 {
+	char		*nb;
+
+	nb = ft_itoabase_signed(wkw->map[wkw->lines][wkw->columns], 10);
 	wkw->wdow2 = subwin(stdscr, LINES / 4, COLS / 4,
 		(LINES / 4 - 1) * wkw->lines, (COLS / 4 - 1) * wkw->columns);
 	*tmp = get_color(wkw->map[wkw->lines][wkw->columns]);
 	init_pair(*a, *tmp, *tmp);
 	init_pair(*b, CHIFFRE, *tmp);
-	wbkgd(wkw->wdow2, COLOR_PAIR((chtype)*a));
+	wbkgd(wkw->wdow2, COLOR_PAIR((chtype)(*a)));
 	++*a;
 	wkw->wdow = subwin(stdscr, LINES / 4, COLS / 4,
 		(LINES / 4 - 1) * wkw->lines, (COLS / 4 - 1) * wkw->columns);
 	move((LINES / 4 - 1) * wkw->lines + (LINES / 8),
 		(COLS / 4 - 1) * wkw->columns + (COLS / 8) -
-		(int)(ft_strlen(ft_itoa(wkw->map[wkw->lines][wkw->columns])) / 2));
-	attron(COLOR_PAIR((chtype)*b));
+		(int)(ft_strlen(nb) / 2));
+	attron(COLOR_PAIR((chtype)(*b)));
 	if (wkw->map[wkw->lines][wkw->columns] != 0)
 		printw("%d", wkw->map[wkw->lines][wkw->columns]);
-	attroff(COLOR_PAIR((chtype)*b));
+	attroff(COLOR_PAIR((chtype)(*b)));
 	++*b;
 	wattron(wkw->wdow, COLOR_PAIR(1));
 	wborder(wkw->wdow, '|', '|', '-', '-', '+', '+', '+', '+');
 	wattroff(wkw->wdow, COLOR_PAIR(1));
+	ft_strdel(&nb);
 }
 
 void			draw_window(t_2048 *wkw)
