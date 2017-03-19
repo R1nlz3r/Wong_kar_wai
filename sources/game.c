@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 16:40:30 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 17:47:34 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 19:30:11 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,18 @@ static int		aff_win(t_2048 *wkw)
 		clear();
 		wkw->wdow = subwin(stdscr, LINES, COLS, 0, 0);
 		wborder(wkw->wdow, '|','|',  '-' , '-', '+','+', '+','+');
-		move(LINES * 0.46, COLS * 0.44);
+		move(LINES * 0.5 - 2, COLS * 0.5 - 4);
 		init_pair(5, COLOR_GREEN, COLOR_BLACK);
 		attron(COLOR_PAIR(5));
 		printw("YOU WIN");
 		attroff(COLOR_PAIR(5));
-		move(LINES / 2, COLS / 5);
-		printw("Partie terminee, appuyez sur ENTER pour continuer ou ESC pour quitter.");
-		move(LINES * 0.55, COLS * 0.44);
+		move(LINES / 2, COLS / 2 - 34);
+		printw("Partie terminee, "
+			"appuyez sur ENTER pour continuer ou ESC pour quitter.");
+		move(LINES * 0.5 + 2, COLS * 0.5 - 5);
 		printw("Score : %u", wkw->score);
 		key = getch();
-		if (key == KEY_UP)
+		if (key == 10)
 			break ;
 		else if (key == 27)
 			return (1);
@@ -88,17 +89,18 @@ static int		aff_game_over(t_2048 *wkw)
 		clear();
 		wkw->wdow = subwin(stdscr, LINES, COLS, 0, 0);
 		wborder(wkw->wdow, '|','|',  '-' , '-', '+','+', '+','+');
-		move(LINES * 0.46, COLS * 0.44);
+		move(LINES * 0.5 - 2, COLS * 0.5 - 4);
 		init_pair(5, COLOR_RED, COLOR_BLACK);
 		attron(COLOR_PAIR(5));
 		printw("GAME OVER.");
 		attroff(COLOR_PAIR(5));
-		move(LINES / 2, COLS / 5);
-		printw("Partie terminee, appuyez sur ENTER pour rejouez ou ESC pour quitter.");
-		move(LINES * 0.55, COLS * 0.44);
+		move(LINES / 2, COLS / 2 - 34);
+		printw("Partie terminee ,"
+			"appuyez sur ENTER pour rejouez ou ESC pour quitter.");
+		move(LINES * 0.5 + 2, COLS * 0.5 - 5);
 		printw("Score : %u", wkw->score);
 		key = getch();
-		if (key == KEY_UP)
+		if (key == 10)
 			break ;
 		else if (key == 27)
 			return (1);
@@ -110,6 +112,7 @@ int			game(t_2048 *wkw)
 {
 	int		key;
 
+	wkw->map[0][0] = 256;
 	game_new_piece(wkw);
 	while (1)
 	{
