@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 14:09:49 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 17:41:50 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 19:29:11 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		game_start(t_2048 *wkw)
 			Press Enter to play") / 2 + 2);
 		printw("Welcome to 2048 ! Press Enter to play");
 		key = getch();
-		if (key == KEY_UP)
+		if (key == 10)
 			break ;
 		else if (key == 27)
 			return (1);
