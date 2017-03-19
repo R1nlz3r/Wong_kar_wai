@@ -6,17 +6,19 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 14:15:24 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 19:57:55 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/19 20:31:41 by mdardakh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_2048.h"
 
-static short	get_color(short val)
+static short	get_color(int val)
 {
 	short		t[12];
 	short i;
 
+	if (val > 2048)
+		return (COLOR_RED);
 	i = 0;
 	t[0] = 0;
 	t[1] = 2;
@@ -30,10 +32,8 @@ static short	get_color(short val)
 	t[9] = 512;
 	t[10] = 1024;
 	t[11] = 2048;
-	while (t[i] != val && i < 12)
+	while (t[i] != (short)val && i < 12)
 		i++;
-	if (i == 12)
-		return (RED);
 	return (i + 152);
 }
 
@@ -62,7 +62,7 @@ void			draw_window(t_2048 *wkw)
 		{
 			win = subwin(stdscr, LINES / 4, COLS / 4, (LINES / 4 - 1) * i,
 				(COLS / 4 - 1) * j);
-			tmp = get_color((short)wkw->map[i][j]);
+			tmp = get_color(wkw->map[i][j]);
 			init_pair(b, tmp, tmp);
 			init_pair(c, CHIFFRE, tmp);
 			wbkgd(win, COLOR_PAIR((chtype)b));
