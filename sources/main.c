@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:49:40 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 16:42:42 by mdardakh         ###   ########.fr       */
+/*   Updated: 2017/03/19 18:44:26 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int					main(void)
 	wkw = NULL;
 	rerun = 1;
 	if (!(wkw = init_t_2048(wkw))
-		|| wkw->win_value % 2 != 0)
+		|| check_pow_2(wkw->win_value))
 		return (-1);
 	srand((unsigned)time(NULL));
 	initscr();
@@ -89,7 +89,6 @@ int					main(void)
 		rerun = 0;
 	while (rerun)
 	{
-		clear();
 		rerun = game(wkw);
 		reset_t_2048(wkw);
 	}
