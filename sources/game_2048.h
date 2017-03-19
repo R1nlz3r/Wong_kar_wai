@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 10:47:07 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 16:42:18 by mdardakh         ###   ########.fr       */
+/*   Updated: 2017/03/19 17:56:28 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct		s_2048
 {
 	WINDOW			*wdow;
 	enum e_const	win_value;
-	char			pad_0[4];
+	int				win;
 	int				**map;
 	int				lines;
 	int				columns;
@@ -46,9 +46,7 @@ typedef struct		s_2048
 
 int					game(t_2048 *wkw);
 void				game_new_piece(t_2048 *wkw);
-int					check_end_game(t_2048 *wkw);
 void				draw_window(t_2048 *wkw);
-int 				game_over(t_2048 *wkw);
 int 				game_start(t_2048 *wkw);
 int					game_down(t_2048 *wkw);
 int					game_up(t_2048 *wkw);
