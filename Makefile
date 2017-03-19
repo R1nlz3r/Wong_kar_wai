@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/17 20:34:13 by mapandel          #+#    #+#              #
-#    Updated: 2017/03/18 17:33:11 by mdardakh         ###   ########.fr        #
+#    Updated: 2017/03/19 15:33:47 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,15 @@ CFLAGS = 	-Wall -Wextra -Werror -Weverything
 
 SRC =		sources/main.c \
 			sources/game.c \
+			sources/game_start.c \
 			sources/game_new_piece.c \
-			sources/game_end.c \
 			sources/fill_window.c \
-			sources/start_and_end.c \
-			sources/game_down.c \
 			sources/game_up.c \
+			sources/game_down.c \
 			sources/game_left.c \
 			sources/game_right.c \
+			sources/game_over.c \
+			sources/game_end.c \
 
 
 OBJ =		$(SRC:.c=.o)
@@ -82,4 +83,4 @@ clean:
 
 fclean: clean
 	@echo "$(RED)--::Executable and Library Delection::--$(DEF)"
-	@rm -rf $(NAME) #$(LIBPATH)
+	@rm -rf $(NAME) $(LIBPATH)
