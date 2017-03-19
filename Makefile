@@ -6,7 +6,7 @@
 #    By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/17 20:34:13 by mapandel          #+#    #+#              #
-#    Updated: 2017/03/19 17:53:54 by mapandel         ###   ########.fr        #
+#    Updated: 2017/03/19 18:50:32 by mapandel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC =		sources/main.c \
 			sources/game_down.c \
 			sources/game_left.c \
 			sources/game_right.c \
+			sources/check_pow_2.c \
 
 
 OBJ =		$(SRC:.c=.o)
