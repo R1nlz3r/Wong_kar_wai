@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 16:40:30 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 21:19:15 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/21 08:20:38 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int				game(t_2048 *wkw)
 {
 	int		key;
 
+	game_new_piece(wkw);
 	game_new_piece(wkw);
 	while (1)
 	{
