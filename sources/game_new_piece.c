@@ -6,7 +6,7 @@
 /*   By: mapandel <mapandel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 12:20:53 by mapandel          #+#    #+#             */
-/*   Updated: 2017/03/19 14:56:51 by mapandel         ###   ########.fr       */
+/*   Updated: 2017/03/21 08:21:23 by mapandel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void			game_new_piece(t_2048 *wkw)
 		wkw->columns = rand() % 4;
 		if (wkw->map[wkw->lines][wkw->columns] == 0)
 		{
-			if (rand() % 2)
+			if (rand() % 4)
 				tmp = 4;
 			wkw->map[wkw->lines][wkw->columns] = tmp;
 			break ;
